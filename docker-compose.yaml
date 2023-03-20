@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: sqlite:latest
+    restart: always
+    container_name: sqlite-container
+    volumes:
+      - ./db/data:/data
+    ports:
+      - "3306:3306"
+    environment:
+      - TZ=America/Manaus
+      - SQLITE_DATABASE=/data/mydatabase.db
+      - SQLITE_USER=root
+      - SQLITE_PASSWORD=root
+      # - SQLITE_INIT_SQL=/data/init.sql
+      # - SQLITE_FOREIGN_KEYS=1
